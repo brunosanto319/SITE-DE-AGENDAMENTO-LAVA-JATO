@@ -1,0 +1,111 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+    color: #222222;
+}
+
+header {
+    background-color: #1d2f52;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+main {
+    width: min(100% - 32px, 1200px);
+    margin: 0 auto;
+    padding: 32px 0;
+}
+
+
+.servicos {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+.card {
+    width: 280px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    padding: 24px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+
+.preco {
+    color: #bd914b;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+
+.agendamento {
+    margin-top: 32px;
+    padding: 24px;
+    background-color: #e9edf3;
+    border-radius: 6px;
+    text-align: center;
+}
+
+
+button {
+    padding: 12px 24px;
+    border: 0;
+    border-radius: 24px;
+    background-color: #e8b35e;
+    color: #172947;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+header h1 {
+    transition: color 0.3s ease;
+}
+
+header h1:hover {
+    color: #e8b35e;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #d49a3d;
+}
+footer {
+    padding: 20px;
+    background-color: #1d2f52;
+    color: #ffffff;
+    text-align: center;
+}
+@media (max-width: 600px) {
+    header {
+        padding: 20px 12px;
+    }
+
+    main {
+        width: calc(100% - 24px);
+        padding: 20px 0;
+    }
+
+    .servicos {
+        gap: 16px;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
