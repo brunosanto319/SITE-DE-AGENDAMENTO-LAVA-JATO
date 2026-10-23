@@ -12,11 +12,11 @@ function escolherServico(servico) {
 
 function consultarValor(servico) {
     if (servico === 1) {
-        return "Lavagem Simples\nValor: R$30,00";
+        return "Lavagem Simples\nValor: R$70,00";
     } else if (servico === 2) {
-        return "Lavagem Completa\nValor: R$50,00";
+        return "Lavagem Completa\nValor: R$150,00";
     } else if (servico === 3) {
-        return "Lavagem com Cera\nValor: R$70,00";
+        return "Lavagem com Cera\nValor: R$250,00";
     } else {
         return "Serviço inválido";
     }
@@ -30,40 +30,39 @@ function verificarHorario(horario) {
     }
 }
 
-function fazerAgendamento() {
-    // Pergunte o nome do cliente
-    let cliente = prompt("Digite o nome do cliente:");
-    let placaDoVeiculo = prompt("")
-    let modeloDoVeiculo
-    let corDoVeiculo
-    let diaDesejado
-    let horario
-    // Pergunte a placa, o modelo e a cor do veículo
-
-    // Pergunte o código do serviço e converta com Number
-
-    // Pergunte o dia desejado
-
-    // Pergunte o horário e converta com Number
-
-    // Chame escolherServico e guarde o retorno
-
-    // Chame consultarValor e guarde o retorno
-
-    // Chame verificarHorario e guarde o retorno
-
-    let situacao;
-
-    if (/* horário permitido e serviço válido */) {
-        situacao = "Agendamento confirmado";
+function situacao(horario, servico) {
+    if (horario >= 8 && horario <= 17 && servico >= 1 && servico <= 3) {
+        return "Agendamento confirmado";
     } else {
-        situacao = "Não foi possível realizar o agendamento";
+        return "Não foi possível realizar o agendamento";
     }
-
-    // Monte o comprovante usando concatenação e \n
-
-    // Mostre o comprovante no console
-
-    // Mostre o comprovante com alert
 }
 
+function fazerAgendamento() {
+    alert("Agendamento iniciado!");
+    
+    // Coleta de dados
+    let cliente = prompt("Digite o nome do cliente:");
+    let modeloDoVeiculo = prompt("Digite o modelo do veiculo:");
+    let placaDoVeiculo = prompt("Digite a placa do veiculo:");
+    let corDoVeiculo = prompt("Digite a cor do veiculo:");
+    let servico = Number(prompt("Digite o serviço desejado?\n1-Lavagem Simples\n2-Lavagem Completa\n3-Lavagem com Cera"));
+    let diaDesejado = prompt("Digite o dia desejado:");
+    let horario = Number(prompt("Digite o horario desejado:\nEntre as 07:00 as 18:00"));
+
+    let servicoEscolhido = escolherServico(servico);
+    let consultarValorServico = consultarValor(servico);
+    let consultarHorario = verificarHorario(horario);
+    let situacaoGeral = situacao(horario, servico);
+
+    let comprovante = "=== COMPROVANTE DE AGENDAMENTO ===\n" +
+                      "Cliente: " + cliente + "\n" +
+                      "Veículo: " + modeloDoVeiculo + " (" + corDoVeiculo + "), Placa: " + placaDoVeiculo + "\n" +
+                      "Dia: " + diaDesejado + " às " + horario + "h\n\n" +
+                      consultarValorServico + "\n\n" +
+                      "Situação: " + situacaoGeral;
+
+    console.log(comprovante);
+
+    alert(comprovante);
+}
